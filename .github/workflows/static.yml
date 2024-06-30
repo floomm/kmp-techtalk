@@ -38,12 +38,8 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
       
-      - name: Navigate to project directory
-        run: cd KMP-Demo
-
       - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-        working-directory: KMP-Demo
+        run: chmod +x KMP-Demo/gradlew
 
       - name: Build the project
         run: ./gradlew wasmJsBrowserProductionWebpack
@@ -56,7 +52,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Specify the path to the build output
-          path: 'KMP-Demo/composeApp/build/processedResources/wasmJs/main'
+          path: 'KMP-Demo/composeApp/build/distribution'
 
       - name: Deploy to GitHub Pages
         id: deployment

@@ -119,3 +119,17 @@ compose.desktop {
         }
     }
 }
+
+tasks.register<Copy>("copyResources") {
+    from("src/wasmJsMain/resources")
+    into("build/distribution")
+}
+
+tasks.register<Copy>("copyJsArtifacts") {
+    from("build/kotlin-webpack/wasmJs/productionExecutable")
+    into("build/distribution")
+}
+
+tasks.named("wasmJsBrowserProductionWebpack") {
+    finalizedBy("copyResources", "copyJsArtifacts")
+}
