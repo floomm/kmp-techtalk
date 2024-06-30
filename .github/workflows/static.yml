@@ -56,7 +56,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Specify the path to the build output
-          path: 'KMP-Demo/composeApp/build/kotlin-webpack/wasmJs/productionExecutable'
+          path 'KMP-Demo/composeApp/build/processedResources/wasmJs/main'
 
       - name: Deploy to GitHub Pages
         id: deployment
