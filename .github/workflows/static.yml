@@ -38,11 +38,16 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
       
+      - name: Navigate to project directory
+        run: cd KMP-Demo
+
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
+        working-directory: KMP-Demo
 
       - name: Build the project
         run: ./gradlew wasmJsBrowserProductionWebpack
+        working-directory: KMP-Demo
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
